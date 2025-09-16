@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GPA Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>GPA Calculator</h1>
+        <p>Use the scale: H=10, S=9, A=8, B=7, C=6 (customizable)</p>
+      </div>
+      <div>
+        <button class="btn" id="addRow">+ Add Subject</button>
+        <button class="btn ghost" id="reset">Reset</button>
+      </div>
+    </header>
+
+    <main>
+      <table aria-label="subjects table">
+        <thead>
+          <tr>
+            <th style="width:36%">Subject</th>
+            <th style="width:20%">Credits</th>
+            <th style="width:20%">Grade</th>
+            <th style="width:20%">Points</th>
+            <th style="width:4%"></th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <!-- rows injected here -->
+        </tbody>
+      </table>
+
+      <div class="controls">
+        <label style="display:flex;gap:8px;align-items:center">
+          <span class="small">Scale:</span>
+          <select id="scaleSelect">
+            <option value="default">H=10,S=9,A=8,B=7,C=6 (Default)</option>
+            <option value="10-9-8-7-6">10-9-8-7-6</option>
+            <option value="4-point">4.0 Scale (A=4,B=3,C=2,D=1,F=0)</option>
+          </select>
+        </label>
+
+        <button class="btn" id="calc">Calculate GPA</button>
+        <button class="btn ghost" id="export">Export CSV</button>
+      </div>
+
+      <div class="summary">
+        <div class="card">
+          <div class="small">Total Credits</div>
+          <div id="totalCredits" class="big">0</div>
+        </div>
+        <div class="card">
+          <div class="small">Weighted Sum</div>
+          <div id="weightedSum" class="big">0</div>
+        </div>
+        <div class="card">
+          <div class="small">GPA</div>
+          <div id="gpa" class="big">0.00</div>
+          <div class="hint">Rounded to 2 decimals</div>
+        </div>
+      </div>
+    </main>
+
+    <div class="footer">
+      <div class="small">Tip: Click the garbage icon to remove a subject. Credits can be decimals (e.g., 0.5).</div>
+      <div class="small">Made with ❤ by MI</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
